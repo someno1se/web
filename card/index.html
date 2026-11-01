@@ -82,6 +82,14 @@ main{padding:85px 0 45px}
 @media(max-width:760px){.shell{padding:0 22px}.site-head{height:72px}.head-tag{font-size:9px}.brand{font-size:12px}main{padding-top:60px}.heading{font-size:clamp(34px,8vw,53px)}.role{font-size:12px}.layout{display:flex;flex-direction:column;gap:43px;margin-top:42px}.stage,.contact-panel{width:100%}.panel-title{font-size:23px}.star-face .name{font-size:clamp(17px,5.2vw,30px)}.star-face .job{font-size:clamp(7px,2.2vw,11px)}.small-contacts{font-size:clamp(7px,1.9vw,11px)}.moon-face .moon-name{font-size:clamp(21px,5.3vw,34px)}.footer{margin-top:35px}.overline{font-size:9px}}
 @media(max-width:380px){.shell{padding:0 16px}.heading{letter-spacing:.115em}.small-contacts{gap:5px}.small-contacts span{gap:7px}.small-contacts svg{height:11px;width:11px}.moon-face .moon-name{letter-spacing:.2em}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+.qr-wrap{margin-top:27px;display:flex;gap:19px;align-items:center;border-top:1px solid #282b30;padding-top:22px}
+.qr-frame{flex:none;width:104px;height:104px;background:#f7f7f6;border-radius:5px;padding:8px}
+.qr-frame svg{width:100%;height:100%;display:block}
+.qr-copy{font-size:12px;color:#e4e6e9;line-height:1.75}
+.qr-copy small{display:block;margin-top:5px;font-size:11px;color:#8e949e;letter-spacing:.01em}
+@media(max-width:760px){.qr-frame{width:96px;height:96px}}
+
 </style>
 </head>
 <body>
@@ -153,6 +161,7 @@ main{padding:85px 0 45px}
 <button class="contact-link" type="button" id="copy-discord"><span class="icon"><svg><use href="#discord"/></svg></span><span class="desc"><span class="main">Discord</span><span class="sub">.v9x2 · 아이디 복사</span></span><span class="arrow" aria-hidden="true">⧉</span></button>
 <a class="contact-link" href="mailto:hskim1303@gmail.com"><span class="icon"><svg><use href="#mail"/></svg></span><span class="desc"><span class="main">Email</span><span class="sub">hskim1303@gmail.com</span></span><span class="arrow" aria-hidden="true">↗</span></a>
 </div>
+<div class="qr-wrap"><div class="qr-frame"><svg id="card-qr" viewBox="-4 -4 41 41" role="img" aria-label="온라인 명함 바로가기 QR 코드"><rect x="-4" y="-4" width="41" height="41" fill="#f7f7f6"/><path id="qr-path" fill="#14161a"/></svg></div><div class="qr-copy">SCAN TO CONNECT<small>카메라로 스캔하면<br>이 명함으로 연결돼요.</small></div></div>
 <div class="share-row"><button type="button" id="share"><svg><use href="#share"/></svg>명함 공유</button><button type="button" id="save"><svg><use href="#download"/></svg>연락처 저장</button></div>
 <p class="note">개인정보 보호를 위해 전화번호는 온라인 명함에 표시하지 않았습니다.</p>
 </aside>
@@ -170,6 +179,12 @@ function notify(message){toast.textContent=message;toast.classList.add("show");c
 function toggle(){const turned=card.classList.toggle("is-flipped");card.setAttribute("aria-pressed",String(turned));card.setAttribute("aria-label",turned?"명함 뒤집기: 현재 뒷면, 달과 로고":"명함 뒤집기: 현재 앞면, 별과 연락처");label.textContent=turned?"02 / BACK — MOON":"01 / FRONT — STAR";flipText.textContent=turned?"별 면 보기":"달 면 보기"}
 card.addEventListener("click",toggle);flip.addEventListener("click",toggle);
 async function copy(value,message){try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(value)}else{const area=document.createElement("textarea");area.value=value;area.style.cssText="position:fixed;opacity:0";document.body.append(area);area.select();if(!document.execCommand("copy"))throw Error("copy failed");area.remove()}notify(message)}catch(e){notify("복사 실패 · 직접 선택해서 복사해 주세요")}}
+
+const qrRows="1fcb5757f,1043c9541,1752ffb5d,175c6fa5d,1743cbb5d,104936e41,1fd55557f,0005f6500,0363b310c,039d4debc,04f5b06eb,0bab43c3c,1cf715979,13bf47bbe,0de9b21e4,000a623e5,0868212da,1f35bb5f9,0052d8afd,1e932b35e,004fd81aa,148d7e4fe,10fc04947,15858b016,1bdf4f1f9,001a3751a,1fdd81f50,1045c311e,175bd5bf2,1754adaa2,1749c9613,104e16647,1fc974314".split(",");
+const qrPath=[];
+for(let y=0;y<qrRows.length;y++){const value=BigInt("0x"+qrRows[y]);for(let x=0;x<33;x++){if((value>>BigInt(32-x))&1n)qrPath.push("M"+x+" "+y+"h1v1h-1z")}}
+document.getElementById("qr-path").setAttribute("d",qrPath.join(""));
+
 document.getElementById("copy-discord").addEventListener("click",function(){copy(".v9x2","Discord 아이디를 복사했어요")});
 document.getElementById("share").addEventListener("click",async function(){const url=location.protocol==="https:"||location.protocol==="http:"?location.href:"https://github.com/someno1se";if(navigator.share){try{await navigator.share({title:"Someno1se | Digital Card",text:"Student Developer · 잔월 | 殘月",url:url})}catch(e){if(e.name!=="AbortError")copy(url,"명함 주소를 복사했어요")}}else{copy(url,"명함 주소를 복사했어요")}});
 document.getElementById("save").addEventListener("click",function(){const vcard=["BEGIN:VCARD","VERSION:3.0","FN:Someno1se","TITLE:Student Developer","EMAIL:hskim1303@gmail.com","URL:https://github.com/someno1se","NOTE:Discord .v9x2 / 잔월 | 殘月","END:VCARD"].join("\r\n");const url=URL.createObjectURL(new Blob([vcard],{type:"text/vcard;charset=utf-8"}));const a=document.createElement("a");a.href=url;a.download="Someno1se.vcf";document.body.append(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},1000);notify("연락처 파일을 저장했어요")});
