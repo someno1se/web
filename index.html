@@ -1,146 +1,57 @@
 <!doctype html>
 <html lang="ko" data-theme="light">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f7f9">
-  <meta name="description" content="학생 개발자 데더의 개인 홈페이지. Team Byte와 개발 프로젝트, 디스코드 커뮤니티 잔월을 소개합니다.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Deader — Developer & Creator">
-  <meta property="og:description" content="아이디어를 경험으로 만드는 학생 개발자, 데더의 공간.">
-  <meta property="og:url" content="https://deader-dev.xyz/">
-  <title>Deader — Developer & Creator</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='17' fill='%231b1b1f'/%3E%3Ctext x='32' y='44' font-size='41' text-anchor='middle' font-family='Arial' font-weight='bold' fill='white'%3ED%3C/text%3E%3C/svg%3E">
-  <script>
-    try { document.documentElement.dataset.theme = localStorage.getItem('deader-theme') === 'dark' ? 'dark' : 'light'; } catch (error) { document.documentElement.dataset.theme = 'light'; }
-  </script>
-  <link rel="stylesheet" href="./assets/css/styles.css">
-  <script type="module" src="./assets/js/app.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fafafa">
+<meta name="description" content="Someno1se의 개인 홈페이지. 개발 프로젝트와 디스코드 친목 서버 잔월을 소개합니다.">
+<meta property="og:title" content="Someno1se">
+<meta property="og:description" content="개발 프로젝트와 잔월 커뮤니티">
+<meta property="og:url" content="https://deader-dev.xyz/">
+<title>Someno1se</title>
+<link rel="stylesheet" href="./assets/css/styles.css">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("deader-theme")==="dark"?"dark":"light"}catch(e){}</script>
+<script type="module" src="./assets/js/app.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">본문으로 이동</a>
-  <header class="site-header" id="top">
-    <div class="nav-inner page-width">
-      <a class="brand" href="#top" aria-label="Deader 홈">
-        <span class="brand-mark" aria-hidden="true">D</span>
-        <span class="brand-name">deader<span class="brand-period">.</span></span>
-      </a>
-      <nav class="desktop-nav" aria-label="주요 메뉴">
-        <a href="#about">소개</a>
-        <a href="#projects">프로젝트</a>
-        <a href="#zanwol">잔월</a>
-        <a href="#contact">연락하기</a>
-      </nav>
-      <div class="nav-actions">
-        <button class="icon-button music-button" type="button" id="music-toggle" aria-label="배경음악 재생" aria-pressed="false" title="배경음악 재생">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-          <span class="music-indicator" aria-hidden="true"></span>
-        </button>
-        <button class="icon-button theme-button" type="button" id="theme-toggle" aria-label="다크 모드 켜기" title="테마 변경">
-          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.98 13.02A9 9 0 0 1 10.98 3.02 9 9 0 1 0 20.98 13.02Z"/></svg>
-          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
-        </button>
-        <button class="icon-button menu-button" type="button" id="menu-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-nav">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
-        </button>
-      </div>
-    </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="모바일 메뉴" hidden>
-      <a href="#about">소개</a>
-      <a href="#projects">프로젝트</a>
-      <a href="#zanwol">잔월</a>
-      <a href="#contact">연락하기</a>
-    </nav>
-  </header>
-
-  <main id="main">
-    <section class="hero page-width" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow hero-eyebrow"><span class="eyebrow-dot"></span> Developer & Community Builder</p>
-        <h1 id="hero-title">작은 생각을,<br><span class="hero-highlight">좋은 경험으로.</span></h1>
-        <p class="hero-description">안녕하세요, 데더입니다.<br>아이디어를 코드로 만들고, 사람들이 머무는 공간을 가꿉니다.</p>
-        <div class="hero-buttons">
-          <a class="button button-primary" href="#projects">프로젝트 살펴보기 <span class="arrow" aria-hidden="true">↗</span></a>
-          <a class="button button-secondary" href="https://github.com/someno1se" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
-        </div>
-        <p class="hero-note">Deader <span aria-hidden="true">/</span> Personal space</p>
-      </div>
-      <div class="hero-art" aria-label="Deader 개인 사이트의 추상적인 D 그래픽" role="img">
-        <div class="art-glow"></div>
-        <div class="art-orbit orbit-one"></div>
-        <div class="art-orbit orbit-two"></div>
-        <div class="hero-tile">
-          <div class="tile-top"><span class="tile-led"></span><span>CREATING THINGS</span><span>01 / 03</span></div>
-          <span class="tile-letter">D<span>.</span></span>
-          <div class="tile-bottom"><span>DESIGN</span><span>DEVELOP</span><span>REFINE</span></div>
-        </div>
-        <div class="floating-chip chip-top"><span class="chip-circle chip-blue"></span> Build with intention</div>
-        <div class="floating-chip chip-bottom"><span class="chip-circle chip-lime"></span> Make it simple</div>
-      </div>
-    </section>
-
-    <section class="intro-strip" aria-label="관심 분야">
-      <div class="page-width strip-inner"><span>디자인에 대한 관심</span><span class="strip-separator" aria-hidden="true"></span><span>개발의 즐거움</span><span class="strip-separator" aria-hidden="true"></span><span>커뮤니티의 연결</span></div>
-    </section>
-
-    <section class="about-section section page-width" id="about" aria-labelledby="about-title">
-      <div class="section-header about-heading reveal">
-        <p class="eyebrow section-eyebrow">ABOUT ME <span>01</span></p>
-        <h2 id="about-title">만들고, 배우고,<br><span class="muted-heading">더 나아갑니다.</span></h2>
-      </div>
-      <div class="about-content reveal">
-        <div class="about-avatar"><img src="https://avatars.githubusercontent.com/u/245659251?v=4" alt="데더의 GitHub 프로필 사진" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"><span aria-hidden="true">D</span></div>
-        <p>서비스와 작은 도구를 만들고, 온라인 커뮤니티를 가꾸는 학생 개발자입니다. 완성도 높은 경험을 위해 기능뿐 아니라 사용하는 사람의 시선도 중요하게 생각합니다.</p>
-        <div class="skill-tags" aria-label="관심 분야"><span>Web</span><span>API</span><span>Discord</span><span>Community</span></div>
-      </div>
-    </section>
-
-    <section class="projects-section section" id="projects" aria-labelledby="projects-title">
-      <div class="page-width">
-        <div class="section-header reveal">
-          <p class="eyebrow section-eyebrow">SELECTED WORK <span>02</span></p>
-          <div class="section-heading-row"><h2 id="projects-title">지금까지의 작업<span class="heading-period">.</span></h2><p>아이디어가 실제 프로젝트가 되는 과정.</p></div>
-        </div>
-        <div class="projects-grid" id="project-grid"></div>
-        <div class="previous-work reveal"><span>이전 활동</span><span>Team height</span><span>2025</span></div>
-      </div>
-    </section>
-
-    <section class="zanwol-wrap section" id="zanwol" aria-labelledby="zanwol-title">
-      <div class="page-width">
-        <div class="section-header reveal">
-          <p class="eyebrow section-eyebrow">COMMUNITY <span>03</span></p>
-          <h2>새롭게 준비하는 공간<span class="heading-period">.</span></h2>
-        </div>
-        <div class="zanwol-panel reveal">
-          <div class="zanwol-content">
-            <div class="zanwol-status"><span class="status-dot"></span> 준비 중인 디스코드 커뮤니티</div>
-            <div class="zanwol-name" aria-hidden="true">ZANWOL / 잔월</div>
-            <h3 id="zanwol-title">하루의 끝에,<br>편안하게 머무는 곳.</h3>
-            <p>가볍게 대화를 나누고 자연스럽게 어울릴 수 있는 친목 서버, 잔월을 준비하고 있습니다.</p>
-            <span class="zanwol-availability">COMING SOON <span aria-hidden="true">↗</span></span>
-          </div>
-          <div class="moon-art" aria-hidden="true"><div class="moon-outer"></div><div class="moon-disc"></div><div class="moon-cut"></div><div class="moon-halo"></div><div class="moon-star star-one"></div><div class="moon-star star-two"></div><div class="moon-star star-three"></div></div>
-          <div class="zanwol-index" aria-hidden="true">A PLACE TO BELONG · 2026</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section section page-width" id="contact" aria-labelledby="contact-title">
-      <div class="contact-box reveal">
-        <p class="eyebrow section-eyebrow">GET IN TOUCH <span>04</span></p>
-        <h2 id="contact-title">다음 이야기를<br><span class="muted-heading">함께 만들어볼까요?</span></h2>
-        <p>프로젝트와 커뮤니티에 대한 소식은 아래에서 확인할 수 있습니다.</p>
-        <div class="contact-links" id="contact-links"></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="page-width footer-inner"><a href="#top" class="footer-brand">deader<span>.</span></a><span>© <span id="footer-year">2026</span> Deader. Made with care.</span><a href="#top">맨 위로 ↑</a></div>
-  </footer>
-
-  <div id="youtube-player" class="youtube-player" aria-hidden="true"></div>
-  <div id="music-status" class="sr-only" aria-live="polite"></div>
-</body>
-</html>
+<a class="skip-link" href="#main">본문으로 이동</a>
+<header class="site-header" id="top">
+<div class="page-width nav-inner">
+<a class="brand" href="#top" aria-label="Someno1se 홈">Someno1se</a>
+<nav class="desktop-nav" aria-label="주요 메뉴"><a href="#about">소개</a><a href="#projects">프로젝트</a><a href="#zanwol">잔월</a><a href="#contact">연락</a></nav>
+<div class="nav-actions">
+<button class="icon-button music-button" id="music-toggle" type="button" aria-label="배경음악 재생" aria-pressed="false" title="배경음악"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span class="music-indicator" aria-hidden="true"></span></button>
+<button class="icon-button theme-button" id="theme-toggle" type="button" aria-label="다크 모드 켜기" title="테마 변경"><svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M20.98 13.02A9 9 0 0 1 10.98 3.02 9 9 0 1 0 20.98 13.02Z"/></svg><svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></button>
+<button class="icon-button menu-button" id="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+</div>
+</div>
+<nav class="mobile-nav page-width" id="mobile-nav" aria-label="모바일 메뉴" hidden><a href="#about">소개</a><a href="#projects">프로젝트</a><a href="#zanwol">잔월</a><a href="#contact">연락</a></nav>
+</header>
+<main id="main">
+<section class="hero page-width" id="about" aria-labelledby="hero-title">
+<p class="overline">PERSONAL SPACE</p>
+<h1 id="hero-title">안녕하세요.<br><span>Someno1se입니다.</span></h1>
+<p class="lead">작은 아이디어를 코드로 만들고,<br>사람들이 편하게 머물 수 있는 공간을 만듭니다.</p>
+<div class="hero-links"><a class="button primary" href="#projects">프로젝트 보기</a><a class="button secondary" href="https://github.com/someno1se" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+</section>
+<section class="section page-width" id="projects" aria-labelledby="projects-title">
+<div class="section-head"><p class="overline">PROJECTS</p><h2 id="projects-title">프로젝트</h2><p>작업하고 있는 것들을 소개합니다.</p></div>
+<div id="project-grid" class="projects-grid"></div>
+</section>
+<section class="section page-width" id="zanwol" aria-labelledby="zanwol-title">
+<div class="section-head"><p class="overline">COMMUNITY</p><h2 id="zanwol-title">잔월</h2></div>
+<div class="zanwol-panel">
+<p class="overline">ZANWOL</p>
+<h3>그냥 친목섭,<br>어쩌면 그 이상의 서버.</h3>
+<p class="zanwol-invite"><strong>잔월</strong>에 여러분을 초대합니다.</p>
+<div class="zanwol-details"><p class="details-title">저희 서버가 어떤 서버냐고요?</p><p>매달 1번씩 꾸준한 이벤트 진행<br>착하고 재밌는 관리진들</p></div>
+<p class="zanwol-message">매일 찾아오지 않아도 괜찮아요.<br>말없이 머물다 가도 괜찮아요.</p>
+<p class="zanwol-message">잔월에서 여러분을 기다릴게요.</p>
+<a class="button primary" href="https://discord.gg/XBEYVmswbZ" target="_blank" rel="noopener noreferrer">잔월 서버 참여하기 <span aria-hidden="true">↗</span></a>
+</div>
+</section>
+<section class="section page-width contact-section" id="contact" aria-labelledby="contact-title"><div class="section-head"><p class="overline">CONTACT</p><h2 id="contact-title">연락하기</h2><p>GitHub와 Discord에서 만날 수 있습니다.</p></div><div id="contact-links" class="contact-links"></div></section>
+</main>
+<footer class="site-footer"><div class="page-width footer-inner"><span>Someno1se</span><span>© <span id="footer-year">2026</span></span></div></footer>
+<div id="youtube-player" class="youtube-player" aria-hidden="true"></div><div id="music-status" class="sr-only" aria-live="polite"></div>
+</body></html>
