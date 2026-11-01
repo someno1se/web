@@ -1,5 +1,5 @@
 
-import {projects,contacts,projectCard,contactLink} from "./components.js";
+import {projects,contacts,projectCard,contactLink} from "./components.js?v=20261101-team-orbital";
 const $=id=>document.getElementById(id);
 projects.forEach(item=>$("project-grid")?.append(projectCard(item)));
 contacts.forEach(item=>$("contact-links")?.append(contactLink(item)));
